@@ -1,1 +1,1 @@
-include ../Makefile.exe
+include ../Makefile.inc
