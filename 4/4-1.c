@@ -5,6 +5,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <getopt.h>
+#include <unistd.h>
 
 #define BUF_SIZE 4*1024
 
