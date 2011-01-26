@@ -1,11 +1,9 @@
-CC=	gcc
+SUBDIRS=	4
 
-.PHONY:	all exe-4
+.PHONY:	all clean
 
-all: exe-4
+all:  
+	for A in $(SUBDIRS); do make -C $$A all; done
 
-exe-4: tee_4-1
-
-tee_4-1:	4-1.c
-	$(CC) $^ -o $@
-
+clean:
+	for A in $(SUBDIRS); do make -C $$A clean; done
