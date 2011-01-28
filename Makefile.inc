@@ -1,14 +1,17 @@
 CC=	gcc
 CFLAGS?= -std=c99 -pedantic -Wall -Wextra -O0 -g
 
-SRC= $(wildcard *.c)
+.PHONY: all clean objs
 
-.PHONY: all clean
+all: $(SRC:%.c=%.exe) objs 
 
-all: $(SRC:%.c=%.exe)
+objs: $(OBJS:%.c=%.o)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $<
 
 %.exe: %.c
 	$(CC) $(CFLAGS) -o $@ $<
 
-clean: $(wildcard *.exe)
+clean: $(wildcard *.exe) $(wildcard *.o)
 	rm -rf $^
