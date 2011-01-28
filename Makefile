@@ -1,4 +1,4 @@
-SUBDIRS=	4 util
+SUBDIRS=	4 5 util
 
 .PHONY:	all clean
 
