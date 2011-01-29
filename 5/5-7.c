@@ -41,6 +41,7 @@ struct some_struct {
 };
 
 int my_readv(int fd, const struct iovec *iov, int iovcnt) {
+	// FIXME: This function is not atomic.
 	int i = 0;
 	int rc = 0;
 	int rv = 0;
@@ -54,6 +55,7 @@ int my_readv(int fd, const struct iovec *iov, int iovcnt) {
 }
 
 int my_writev(int fd, const struct iovec *iov, int iovcnt) {
+	// FIXME: This function is not atomic.
 	int i = 0;
 	int alloc_size = 0;
 	void * buf;
