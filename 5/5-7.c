@@ -47,7 +47,9 @@ int my_readv(int fd, const struct iovec *iov, int iovcnt) {
 	int rv = 0;
 	while( i < iovcnt ) {
 		rc = read(fd, iov[i].iov_base, iov[i].iov_len);
-		rv+= rc;
+		if ( rc == -1 )
+            break;
+        rv+= rc;
 		i++;
 	}
 
